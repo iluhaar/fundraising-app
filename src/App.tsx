@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { JarComponent } from "./Components/JarComponent/JarComponent";
 import { TotalComponent } from "./Components/TotalComponent";
 
-import { fetchJarsData } from "./helpers/helpers";
+import { fetchJarsData, fetchJarsDataPost } from "./helpers/helpers";
 
 import { JarType } from "./types/jar";
 
@@ -16,14 +16,18 @@ function App() {
   const monoId = queryParameters.get("mono");
   const pr = queryParameters.get("pr");
 
-  // const allMonoParamrs = queryParameters.getAll("mono");
-  // console.log("🚀 ~ App ~ allMonoParamrs:", allMonoParamrs);
-  //TODO:
-  //* get all params with mono word and passthem into the fetchJarsData
-  //*
+  const allMonoParams = queryParameters.getAll("mono");
 
   useEffect(() => {
     async function fetchData() {
+      if (allMonoParams.length > 1) {
+        const data = await fetchJarsDataPost(allMonoParams);
+        if (data !== undefined) {
+          setJars(data);
+          setIsLoading(false);
+        }
+        return;
+      }
       if (monoId === null || pr === null) return null;
       const data = await fetchJarsData(monoId, pr);
 
@@ -34,6 +38,7 @@ function App() {
     }
 
     fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (isLoading) {

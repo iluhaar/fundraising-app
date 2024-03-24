@@ -17,27 +17,57 @@ export const fetchJarsData = async (mono: string, pr: string) => {
     const data = fetch(url).then((res) => res.json());
     return data;
   } catch (error) {
-    console.log("🚀 ~ getPrivatData ~ error:", error);
+    console.error(error);
   }
 };
 
-export const calculateAccumulated = (jars: JarType[]) => {
-  let goal = "";
+export const fetchJarsDataPost = async (mono: string[]) => {
+  const url = `http://localhost:3000/data`;
+  const body = JSON.stringify(mono);
 
-  jars.forEach((jar) => {
-    if (goal !== jar.goal) {
-      return String((goal = jar.goal));
+  try {
+    const data = await fetch(url, {
+      method: "POST",
+      body,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then((res) => res.json());
+    return data;
+  } catch (error) {
+    console.error("", error);
+  }
+};
+
+const getGoal = (goals: number[]) => {
+  let maxGoal = 0;
+
+  for (const goal of goals) {
+    const currentGoal = goal;
+    if (currentGoal > maxGoal) {
+      maxGoal = currentGoal;
     }
-  });
+  }
 
-  const total: number = jars.reduce((accumulator, currentValue) => {
+  return maxGoal;
+};
+
+const calculateAccumulatedTotal = (jars: JarType[]) => {
+  return jars.reduce((accumulator, currentValue) => {
     const amount = parseInt(currentValue.amount.replace(/[^0-9.]/g, ""));
 
     return accumulator + amount;
   }, 0);
+};
 
-  const goalNumber: number = parseInt(goal.replace(/[^0-9.]/g, ""));
-  const progress = ((total / goalNumber) * 100).toFixed(2);
+export const calculateAccumulated = (jars: JarType[]) => {
+  const goals = jars.map((jar) => parseInt(jar.goal.replace(/[^0-9.]/g, "")));
 
-  return { total: formatMoney(total), progress, goal };
+  const goal = getGoal(goals);
+
+  const total = calculateAccumulatedTotal(jars);
+
+  const progress = ((total / goal) * 100).toFixed(2);
+
+  return { total: formatMoney(total), progress, goal: formatMoney(goal) };
 };
