@@ -26,6 +26,10 @@ img {
   border-radius: 50%;
 }
 
+img:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
 .donate_button {
   margin-bottom: 1rem;
 }
