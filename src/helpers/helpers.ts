@@ -22,7 +22,7 @@ export const fetchJarsData = async (mono: string, pr: string) => {
 };
 
 export const fetchJarsDataPost = async (mono: string[]) => {
-  const url = `http://localhost:3000/data`;
+  const url = `https://fundraising-server.onrender.com/data`;
   const body = JSON.stringify(mono);
 
   try {
