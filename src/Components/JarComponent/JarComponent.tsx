@@ -6,7 +6,7 @@ export const JarComponent = ({
   title,
   description,
   amount,
-  //   closed,
+  closed,
   ownerName,
   ownerIcon,
   goal,
@@ -19,29 +19,37 @@ export const JarComponent = ({
 
   return (
     <div className="jar">
-      <h2>{bank}</h2>
-      <div>
+      <h3>{bank}</h3>
+      <div className="raising-info">
         <div>
-          <h3>{title}</h3>{" "}
-          <img src={fundLogo} width="150" alt={`logo ${title}`} />{" "}
-          <h4>{ownerName}</h4>
-        </div>
-        <div>
-          <p>Зібрано:{amount} ₴</p>
-          <p>Ціль: {goal} ₴</p>
-        </div>
-        <>
+          <div>
+            <h4>{title}</h4>
+            <img src={fundLogo} width="150" alt={`logo ${title}`} />{" "}
+            <div>
+              <h5>{ownerName}</h5>
+            </div>
+          </div>
+          <div>
+            <p>
+              <div style={{ textDecoration: closed ? "line-through" : "" }}>
+                Зібрано:{amount} ₴
+              </div>
+              {closed && <h4> Збір закрито 💪</h4>}
+            </p>
+            <p>Ціль: {goal} ₴</p>
+          </div>
           <p>{description}</p>
-        </>
-        <>
-          {jarId && (
-            <button className="donate_button">
-              <a href={jarLink} target="_blank">
-                Банка
-              </a>
-            </button>
-          )}
-        </>
+        </div>
+      </div>
+
+      <div>
+        {jarId && (
+          <button className="donate_button">
+            <a href={jarLink} target="_blank">
+              Банка
+            </a>
+          </button>
+        )}
       </div>
     </div>
   );

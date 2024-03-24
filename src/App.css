@@ -1,7 +1,6 @@
 #root {
-  max-width: 1280px;
+  max-width: 1444px;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
 }
 
@@ -17,9 +16,20 @@
 }
 
 .jar {
+  display: flex;
+  flex-direction: column;
   min-width: 20rem;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
-  padding: 0.5rem;
+  padding: 0.15rem 0.5rem 0.15rem;
+  flex-grow: 1;
+  flex-basis: 0;
+  justify-content: stretch;
+}
+
+.jar h3,
+h4,
+p {
+  line-height: normal;
 }
 
 img {
@@ -42,11 +52,21 @@ a:active {
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
-  .app_wrapper {
+  #root {
     flex-direction: column-reverse;
     row-gap: 1rem;
+    margin: 2rem;
   }
   .jars_wrapper {
     flex-direction: column;
   }
+}
+.totalComponent h4,
+h5 {
+  line-height: normal;
+}
+
+.raising-info {
+  display: flex;
+  flex-direction: column;
 }

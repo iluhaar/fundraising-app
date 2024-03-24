@@ -14,7 +14,7 @@ export const TotalComponent = ({ jarsData }: Props) => {
   } = calculateAccumulated(jarsData);
 
   return (
-    <div>
+    <div className="totalComponent">
       <h3>Ціль: {totalGoal} ₴</h3>
       <h4>Всього зібрано: {accumulated} ₴</h4>
       <Progressbar progress={progress} />

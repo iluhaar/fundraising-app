@@ -17,7 +17,7 @@ export const fetchMocked = [
     description:
       "Хлопці на кремінському напрямку потребують DJI Mavic 3T для ефективного виконання завдань в ночі. ",
     amount: "17 296,00",
-    closed: false,
+    closed: true,
     ownerName: "Єлисей Т.",
     goal: "205 000,00",
     ownerIcon:
@@ -62,5 +62,20 @@ export const postMocked = [
     ownerIcon:
       "https://ava-img.monobank.com.ua/NqJAEHONJZ4lEaerJztWu_HlK3sLDATNoPioH8C0cXQ=.jpg",
     jarId: "7sKE5pNsUb",
+  },
+  {
+    bank: "Монобанка",
+    amount: "0",
+    goal: "20 000,00",
+    ownerIcon:
+      "https://jar-img.monobank.com.ua/N92.30.0025723275.jpg?ts=2024-03-18T18:32:46.042859936",
+    title: "На тачку для 453 Бат",
+    ownerName: "Юлія Б.",
+    currency: 980,
+    description:
+      "@bshn.d збирає на тачку для свого пілрозділу 141 Бр 453 батальйону, щоб розгорнути БаАК «Довбуш Т20». \nЗагальна сума - 200к, моя мета - 20к. \nДонатимо!",
+    jarId: "7cYs7aghQL",
+    blago: false,
+    closed: true,
   },
 ];
