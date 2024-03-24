@@ -1,0 +1,20 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.jars_wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.jar {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
+}
+
+img {
+  border-radius: 50%;
+}
