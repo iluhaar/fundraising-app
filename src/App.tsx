@@ -11,11 +11,13 @@ import "./App.css";
 
 function App() {
   const [jarsData, setJars] = useState<JarType[] | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
   const queryParameters = new URLSearchParams(window.location.search);
   const monoId = queryParameters.get("mono");
   const pr = queryParameters.get("pr");
 
-  // const allQParamrs = queryParameters.getAll("mono");
+  // const allMonoParamrs = queryParameters.getAll("mono");
+  // console.log("🚀 ~ App ~ allMonoParamrs:", allMonoParamrs);
   //TODO:
   //* get all params with mono word and passthem into the fetchJarsData
   //*
@@ -23,16 +25,24 @@ function App() {
   useEffect(() => {
     async function fetchData() {
       if (monoId === null || pr === null) return null;
-
       const data = await fetchJarsData(monoId, pr);
 
       if (data !== undefined) {
         setJars(data);
+        setIsLoading(false);
       }
     }
 
     fetchData();
   }, []);
+
+  if (isLoading) {
+    return (
+      <>
+        <h1>...Loading</h1>
+      </>
+    );
+  }
 
   if (jarsData === null) return null;
 

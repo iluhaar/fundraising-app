@@ -5,6 +5,11 @@
   text-align: center;
 }
 
+.app_wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
 .jars_wrapper {
   display: flex;
   flex-direction: row;
@@ -13,8 +18,30 @@
 
 .jar {
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
+  padding: 0.5rem;
 }
 
 img {
   border-radius: 50%;
+}
+
+.donate_button {
+  margin-bottom: 1rem;
+}
+
+.donate_button a,
+a:visited,
+a:hover,
+a:active {
+  color: inherit;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .app_wrapper {
+    flex-direction: column-reverse;
+    row-gap: 1rem;
+  }
+  .jars_wrapper {
+    flex-direction: column;
+  }
 }

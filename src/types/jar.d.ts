@@ -7,4 +7,5 @@ export interface JarType {
   ownerName: string;
   ownerIcon: string;
   bank: string;
+  jarId: string;
 }

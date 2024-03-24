@@ -11,6 +11,7 @@ const formatMoney = (money: number) => {
 
 export const fetchJarsData = async (mono: string, pr: string) => {
   const url = `https://fundraising-server.onrender.com/data?mono=${mono}&pr=${pr}`;
+  // const url = `http://localhost:3000/data?mono=${mono}&pr=${pr}`;
 
   try {
     const data = fetch(url).then((res) => res.json());

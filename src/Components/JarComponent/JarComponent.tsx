@@ -11,7 +11,10 @@ export const JarComponent = ({
   ownerIcon,
   goal,
   bank,
+  jarId,
 }: JarType) => {
+  const jarLink = jarId && `https://send.monobank.ua/jar/${jarId}`;
+
   const fundLogo = ownerIcon.includes("https") ? ownerIcon : logo;
 
   return (
@@ -27,7 +30,18 @@ export const JarComponent = ({
           <p>Зібрано:{amount} ₴</p>
           <p>Ціль: {goal} ₴</p>
         </div>
-        <p>{description}</p>
+        <>
+          <p>{description}</p>
+        </>
+        <>
+          {jarId && (
+            <button className="donate_button">
+              <a href={jarLink} target="_blank">
+                Банка
+              </a>
+            </button>
+          )}
+        </>
       </div>
     </div>
   );
