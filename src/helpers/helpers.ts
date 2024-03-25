@@ -1,5 +1,5 @@
 import { JarType } from "../types/jar";
-import { fetchMocked, postMocked } from "./mocked";
+// import { fetchMocked, postMocked } from "./mocked";
 
 const formatMoney = (money: number) => {
   const formattedNumber = (money / 100).toLocaleString("uk-UA", {
@@ -12,9 +12,9 @@ const formatMoney = (money: number) => {
 
 export const fetchJarsData = async (mono: string, pr: string) => {
   const url = `https://fundraising-server.onrender.com/data?mono=${mono}&pr=${pr}`;
-  // // const url = `http://localhost:3000/data?mono=${mono}&pr=${pr}`;
+  // const url = `http://localhost:3500/data?mono=${mono}&pr=${pr}`;
 
-  return fetchMocked;
+  // return fetchMocked;
   try {
     const data = fetch(url).then((res) => res.json());
     return data;
@@ -25,9 +25,10 @@ export const fetchJarsData = async (mono: string, pr: string) => {
 
 export const fetchJarsDataPost = async (mono: string[]) => {
   const url = `https://fundraising-server.onrender.com/data`;
+  // const url = `http://localhost:3500/data`;
   const body = JSON.stringify(mono);
 
-  return postMocked;
+  // return postMocked;
   try {
     const data = await fetch(url, {
       method: "POST",

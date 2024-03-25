@@ -6,13 +6,20 @@ import { JarType } from "../../types/jar";
 
 import "../../App.css";
 
-const JarsComponent = () => {
+import ReactGA from "react-ga";
+ReactGA.initialize("XCBHE38N1Z");
+
+export const JarsComponent = () => {
   const [jarsData, setJars] = useState<JarType[] | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const queryParameters = new URLSearchParams(window.location.search);
   const monoId = queryParameters.get("mono");
   const pr = queryParameters.get("pr");
   const allMonoParams = queryParameters.getAll("mono");
+
+  useEffect(() => {
+    ReactGA.send({ hitType: "pageview", page: window.location.pathname });
+  }, []);
 
   useEffect(() => {
     async function fetchData() {
@@ -60,5 +67,3 @@ const JarsComponent = () => {
     </>
   );
 };
-
-export default JarsComponent;

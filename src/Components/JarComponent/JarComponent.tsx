@@ -30,12 +30,12 @@ export const JarComponent = ({
             </div>
           </div>
           <div>
-            <p>
+            <span>
               <div style={{ textDecoration: closed ? "line-through" : "" }}>
                 Зібрано:{amount} ₴
               </div>
               {closed && <h4> Збір закрито 💪</h4>}
-            </p>
+            </span>
             <p>Ціль: {goal} ₴</p>
           </div>
           <p>{description}</p>
