@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import "./App.css";
 import { Header } from "./Components/Header/Header";
 
-ReactGA.initialize("XCBHE38N1Z");
+ReactGA.initialize("G-XCBHE38N1Z");
 
 function App() {
   useEffect(() => {

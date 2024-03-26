@@ -7,7 +7,7 @@ import { JarType } from "../../types/jar";
 import "../../App.css";
 
 import ReactGA from "react-ga";
-ReactGA.initialize("XCBHE38N1Z");
+ReactGA.initialize("G-XCBHE38N1Z");
 
 export const JarsComponent = () => {
   const [jarsData, setJars] = useState<JarType[] | null>(null);
