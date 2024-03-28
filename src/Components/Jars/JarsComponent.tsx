@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { fetchJarsData, fetchJarsDataPost } from "../../helpers/helpers";
 import { JarComponent } from "../JarComponent/JarComponent";
 import { TotalComponent } from "../TotalComponent";
-import { JarType } from "../../types/jar";
+import { JarsType } from "../../types/jar";
 
 import "../../App.css";
 
@@ -10,7 +10,7 @@ import ReactGA from "react-ga";
 ReactGA.initialize("G-XCBHE38N1Z");
 
 export const JarsComponent = () => {
-  const [jarsData, setJars] = useState<JarType[] | null>(null);
+  const [jarsData, setJars] = useState<JarsType | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const queryParameters = new URLSearchParams(window.location.search);
   const monoId = queryParameters.get("mono");
@@ -56,11 +56,15 @@ export const JarsComponent = () => {
 
   return (
     <>
-      <TotalComponent jarsData={jarsData} />
+      <TotalComponent
+        total={jarsData.total}
+        goal={jarsData.goal}
+        progress={jarsData.progress}
+      />
 
       <section className="jars_wrapper">
-        {jarsData.length &&
-          jarsData.map((jar, index) => (
+        {jarsData.data.length &&
+          jarsData.data.map((jar, index) => (
             <JarComponent {...jar} key={index + `${jar.bank}`} />
           ))}
       </section>

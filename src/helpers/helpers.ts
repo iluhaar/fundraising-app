@@ -1,18 +1,8 @@
-import { JarType } from "../types/jar";
 // import { fetchMocked, postMocked } from "./mocked";
-
-const formatMoney = (money: number) => {
-  const formattedNumber = (money / 100).toLocaleString("uk-UA", {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2,
-  });
-
-  return formattedNumber;
-};
 
 export const fetchJarsData = async (mono: string, pr: string) => {
   const url = `https://fundraising-server.onrender.com/data?mono=${mono}&pr=${pr}`;
-  // const url = `http://localhost:3500/data?mono=${mono}&pr=${pr}`;
+  // const url = `http://localhost:3000/data?mono=${mono}&pr=${pr}`;
 
   // return fetchMocked;
   try {
@@ -25,7 +15,7 @@ export const fetchJarsData = async (mono: string, pr: string) => {
 
 export const fetchJarsDataPost = async (mono: string[]) => {
   const url = `https://fundraising-server.onrender.com/data`;
-  // const url = `http://localhost:3500/data`;
+  // const url = `http://localhost:3000/data`;
   const body = JSON.stringify(mono);
 
   // return postMocked;
@@ -41,37 +31,4 @@ export const fetchJarsDataPost = async (mono: string[]) => {
   } catch (error) {
     console.error("", error);
   }
-};
-
-const getGoal = (goals: number[]) => {
-  let maxGoal = 0;
-
-  for (const goal of goals) {
-    const currentGoal = goal;
-    if (currentGoal > maxGoal) {
-      maxGoal = currentGoal;
-    }
-  }
-
-  return maxGoal;
-};
-
-const calculateAccumulatedTotal = (jars: JarType[]) => {
-  return jars.reduce((accumulator, currentValue) => {
-    const amount = parseInt(currentValue.amount.replace(/[^0-9.]/g, ""));
-
-    return accumulator + amount;
-  }, 0);
-};
-
-export const calculateAccumulated = (jars: JarType[]) => {
-  const goals = jars.map((jar) => parseInt(jar.goal.replace(/[^0-9.]/g, "")));
-
-  const goal = getGoal(goals);
-
-  const total = calculateAccumulatedTotal(jars);
-
-  const progress = ((total / goal) * 100).toFixed(2);
-
-  return { total: formatMoney(total), progress, goal: formatMoney(goal) };
 };

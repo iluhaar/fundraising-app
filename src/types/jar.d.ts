@@ -9,3 +9,10 @@ export interface JarType {
   bank: string;
   jarId: string;
 }
+
+export interface JarsType {
+  data: JarType[];
+  total: string;
+  goal: string;
+  progress: string;
+}

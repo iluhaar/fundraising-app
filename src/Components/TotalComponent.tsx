@@ -1,22 +1,16 @@
-import { calculateAccumulated } from "../helpers/helpers";
-import { JarType } from "../types/jar";
 import { Progressbar } from "./Progressbar/Progressbar";
 
 type Props = {
-  jarsData: JarType[];
+  total: string;
+  goal: string;
+  progress: string;
 };
 
-export const TotalComponent = ({ jarsData }: Props) => {
-  const {
-    total: accumulated,
-    progress,
-    goal: totalGoal,
-  } = calculateAccumulated(jarsData);
-
+export const TotalComponent = ({ total, goal, progress }: Props) => {
   return (
     <div className="totalComponent">
-      <h3>Ціль: {totalGoal} ₴</h3>
-      <h4>Всього зібрано: {accumulated} ₴</h4>
+      <h3>Ціль: {goal} ₴</h3>
+      <h4>Всього зібрано: {total} ₴</h4>
       <Progressbar progress={progress} />
     </div>
   );
