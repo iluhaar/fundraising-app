@@ -24,7 +24,12 @@ export const JarComponent = ({
         <div>
           <div>
             <h4>{title}</h4>
-            <img src={fundLogo} width="150" alt={`logo ${title}`} />{" "}
+            <img
+              className="jar-logo"
+              src={fundLogo}
+              width="150"
+              alt={`logo ${title}`}
+            />{" "}
             <div>
               <h5>{ownerName}</h5>
             </div>

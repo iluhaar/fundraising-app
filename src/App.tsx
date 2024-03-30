@@ -1,3 +1,4 @@
+import { Outlet } from "react-router-dom";
 import ReactGA from "react-ga";
 
 import { useEffect } from "react";
@@ -13,6 +14,7 @@ function App() {
   return (
     <>
       <Header />
+      <Outlet />
     </>
   );
 }

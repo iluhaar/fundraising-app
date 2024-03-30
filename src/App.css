@@ -33,11 +33,11 @@ p {
   line-height: normal;
 }
 
-img {
+.jar-logo {
   border-radius: 50%;
 }
 
-img:hover {
+.jar-logo:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
@@ -45,7 +45,7 @@ img:hover {
   margin-bottom: 1rem;
 }
 
-.donate_button a,
+a,
 a:visited,
 a:hover,
 a:active {
@@ -70,4 +70,22 @@ h5 {
 .raising-info {
   display: flex;
   flex-direction: column;
+}
+
+.home__wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: start;
+  padding-top: 3rem;
+}
+
+.spoiler {
+  cursor: pointer;
+}
+
+.form-item {
+  display: flex;
+  gap: 0 2rem;
 }
