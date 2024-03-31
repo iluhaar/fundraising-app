@@ -108,3 +108,12 @@ h5 {
   display: flex;
   gap: 0 2rem;
 }
+
+.warning {
+  border: red 1px solid;
+  padding: 1rem;
+}
+
+.warning a {
+  text-decoration: underline;
+}
