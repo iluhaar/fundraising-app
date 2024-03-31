@@ -13,7 +13,7 @@ export const Home = () => {
       <h1>Вітаю! Це сервіс для моніторінгу динаміки зборів</h1>
       <section>
         <h2>З цим сервісом ви зможете моніторити:</h2>
-        <ul style={{ textAlign: "initial" }}>
+        <ul style={{ textAlign: "initial", textWrap: "pretty" }}>
           <li>
             збори на моно, коли до загалього збору долучаються ще люди, як
             приклад це{" "}
@@ -29,8 +29,15 @@ export const Home = () => {
           <li>збори коли збір йде на банку моно і на конверт приватбанку</li>
         </ul>
         <div style={{ display: "flex" }}>
-          <strong>Приклад:</strong>
-          <img src={previewImg} width="550" alt="preview image" />
+          <strong>
+            <p>Приклад:</p>
+          </strong>
+          <img
+            src={previewImg}
+            className="previewImg"
+            width="550"
+            alt="preview image"
+          />
         </div>
       </section>
       <section>
@@ -69,6 +76,7 @@ export const Home = () => {
                 src={firstStepMono}
                 alt="Відкриваємо посилання на монобанку"
                 width="550"
+                className="stepsImg"
               />
             </details>
 
@@ -80,6 +88,7 @@ export const Home = () => {
                   src={secondStepMono}
                   alt="Відкриваємо посилання на монобанку"
                   width="550"
+                  className="stepsImg"
                 />
               </details>
             </li>
@@ -92,6 +101,7 @@ export const Home = () => {
                   alt='
             У вкладці що вікрилась копіюєте все що після "longJarId=" і до "&"'
                   width="550"
+                  className="stepsImg"
                 />
               </details>
             </li>
@@ -116,6 +126,7 @@ export const Home = () => {
                   src={privatStep}
                   alt="Відкриваємо посилання на конверт"
                   width="550"
+                  className="stepsImg"
                 />
               </details>
             </li>
