@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { Progressbar } from "./Progressbar/Progressbar";
 
 type Props = {

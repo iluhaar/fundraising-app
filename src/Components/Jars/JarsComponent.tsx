@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { fetchJarsData, fetchJarsDataPost } from "../../helpers/helpers";
 import { JarComponent } from "../JarComponent/JarComponent";
 import { TotalComponent } from "../TotalComponent";

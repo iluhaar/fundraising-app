@@ -1,3 +1,5 @@
+import React from 'react';
+
 import previewImg from "../../assets/previewExample.png";
 import firstStepMono from "../../assets/guides/mono-guide/first-screen.png";
 import secondStepMono from "../../assets/guides/mono-guide/second-screen.png";

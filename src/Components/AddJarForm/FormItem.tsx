@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 type Props = {
   isButtonDisabled: boolean;
   handleMonitoringLink: (arg1: string, arg2: string) => void;

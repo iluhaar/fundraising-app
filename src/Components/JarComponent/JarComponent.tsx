@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { JarType } from "../../types/jar";
 
 import logo from "../../assets/logo.jpg";
