@@ -1,4 +1,4 @@
-import { fetchMocked, postMocked } from "./mocked.ts";
+// import { fetchMocked, postMocked } from "./mocked.ts";
 
 export const fetchJarsData = async (mono: string, pr: string) => {
   const url = `https://fundraising-server.onrender.com/data?mono=${mono}&pr=${pr}`;
